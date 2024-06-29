@@ -11,6 +11,10 @@ This project is a Streamlit application that uses YOLO v10 for image recognition
 - User-friendly interface with Streamlit
 - Supports multiple image formats
 
+## Demo
+
+![Demo Image](images/demo01.png)
+
 ## Installation
 
 1. Clone the repository:
@@ -20,20 +24,18 @@ This project is a Streamlit application that uses YOLO v10 for image recognition
    cd streamlit-yolo-v10
    ```
 
-2. Create a virtual environment and activate it:
+2. Create a virtual environment and Install the required packages:
 
    ```sh
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. Install the required packages:
-
-   ```sh
+   conda create -n yolov10 python=3.9
+   conda activate yolov10
    pip install -r requirements.txt
+   cd yolov10
+   pip install -e .
+   cd ..
    ```
 
-4. Download the YOLO v10 weights and configuration files:
+3. Download the YOLO v10 weights and configuration files:
    - [yolov10n.pt](https://github.com/THU-MIG/yolov10/releases/download/v1.1/yolov10n.pt)
    - Place them in the `model` directory.
 
@@ -43,6 +45,7 @@ Run the Streamlit application:
 
 ```sh
 streamlit run app.py
+# Local URL: http://localhost:8501
 ```
 
 Upload an image and see the YOLO v10 detection results.
@@ -52,21 +55,24 @@ Upload an image and see the YOLO v10 detection results.
 ```
 streamlit-yolo-v10/
 │
-├── model/
+├── images
+├── model
 │   └── yolov10n.pt
 ├── yolov10
 ├── app.py
-├── utils.py
 ├── requirements.txt
-└── README.md
+├── README.md
+└── utils.py
 ```
 
+- `images/`: Directory to store test and demo images.
 - `model/`: Directory to store YOLO v10 weights.
 - `yolov10`: Yolov10 original resporitory
 - `app.py`: Main Streamlit application file.
 - `utils.py`: Utility functions for image processing and YOLO v10 integration.
 - `requirements.txt`: Python dependencies.
 - `README.md`: Project documentation.
+- `utils.py`: Utils file to store the classes of Yolo.
 
 ## License
 
